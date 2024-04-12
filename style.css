@@ -1,0 +1,130 @@
+/* --- Reset --- */
+* {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    resize: none;
+}
+
+/* --- Généralités --- */
+body {
+    background-color: #deb887;
+    font-family: 'Turret Road', cursive;
+    padding: 80px 15px 15px;
+}
+
+.hidden {
+    display: none!important;
+}
+
+
+/* --- Barre d'outils --- */
+.tool-bar {
+    display: flex;
+    right: 15px;
+    position: fixed;
+    top: 15px;
+}
+
+
+/* --- Boutons --- */
+.btn {
+    background-color: #808080;
+    border: 1px solid #4d4d4d;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 10px 15px;
+}
+
+    .btn:hover {
+        background-color: #4d4d4d;
+    }
+
+    .btn.btn-danger {
+        background-color: #c00;
+        border-color: #600;
+    }
+
+        .btn.btn-danger:hover {
+            background-color: #600;
+        }
+
+    .btn.btn-success {
+        background-color: #19ad70;
+        border-color: #0c5537;
+    }
+    
+    .btn.btn-success:hover {
+        background-color: #0c5537;
+    }
+    
+/* --- Zone des Post-Its --- */
+#post-its-w {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* --- Post-Its --- */
+.post-it {
+    background-color: #fffc66;
+    border: 1px solid #999600;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .6);
+    flex: 0 0 250px;
+    padding: 15px;
+    position: relative;
+}
+
+    .post-it:nth-child(odd) {
+        transform: rotateZ(5deg);
+    }
+
+    .post-it:nth-child(even) {
+        transform: rotateZ(-5deg);
+    }
+
+.commands {
+    float: right;
+}
+
+.content input,
+.content textarea,
+.content [contenteditable="true"] {
+    background-color: #fff;
+    border: 1px solid #999600; 
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px 7px;
+    width: 100%;
+
+}
+.content input:focus,
+.content textarea:focus,
+.content [contenteditable="true"]:focus {
+    outline: 2px solid #999600;
+}
+
+.content textarea {
+    height: 80px;
+}
+
+.content .timestamp {
+    color: #4d4d4d;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.content .title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.content .message {
+    font-size: 18px;
+}
