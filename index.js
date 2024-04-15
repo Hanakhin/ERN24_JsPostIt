@@ -1,1 +1,3 @@
-console.log('index')
+console.log( 'Ça marche' );
+
+appInit();
