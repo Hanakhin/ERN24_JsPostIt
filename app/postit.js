@@ -35,6 +35,10 @@ function postItGetDOM( postItData ) {
     const elPostIt = document.createElement( 'div' );
     elPostIt.classList.add( 'post-it' );
 
+    elPostIt.innerHTML = postItData.title + '<br/>';
+    elPostIt.innerHTML += postItData.content + '<br/>';
+    elPostIt.innerHTML += postItData.createStamp + '<br/>';
+    elPostIt.innerHTML += postItData.updateStamp;
     // TODO: Le code complet du post-it
 
     return elPostIt;

@@ -4,6 +4,8 @@ const app = {
     elBtnClear: document.getElementById( 'clear-btn' ),
     elPostItsContainer: document.getElementById( 'post-its-w' ),
     elCreateForm: null,
+    elInputFormTitle: null,
+    elInputFormContent: null,
     arrPostItDatas: []
 };
 
@@ -15,24 +17,7 @@ function appInit() {
 
     // TODO: Reconstitution des Post-Its enregistrés
     // Temporaire:
-    app.arrPostItDatas.push( {
-        title: '',
-        content: '',
-        createStamp: 0,
-        updateStamp: 0
-    },
-    {
-        title: '',
-        content: '',
-        createStamp: 0,
-        updateStamp: 0
-    },
-    {
-        title: '',
-        content: '',
-        createStamp: 0,
-        updateStamp: 0
-    } );
+
 
     // Ajout des post-its à l'affichage
     for( let postIt of app.arrPostItDatas ) {
@@ -78,6 +63,10 @@ function appCreateFormDOM() {
     // Injection du contenu dans elCreateForm
     app.elCreateForm.innerHTML = htmlContent;
 
+
+    app.elInputFormTitle = app.elCreateForm.querySelector('#form-title')
+    app.elTextFormContent = app.elCreateForm.querySelector('#form-content')
+
     // Gestion du bouton d'enregistrement
     const elBtnNewPostIt = app.elCreateForm.querySelector( '#form-save' );
     elBtnNewPostIt.addEventListener( 'click', appHandlerNewPostIt );
@@ -87,6 +76,34 @@ function appCreateFormDOM() {
 /**
  * Gestionnaire de l'enregistrement d'un nouveau Post-It
  */
-function appHandlerNewPostIt( evt ) {
+function appHandlerNewPostIt( ) {
     console.log( 'cliqué' );
+
+const newPostIt = Object.create(modelPostIt);
+
+let hasError = false;
+
+hasError = isUserInputValid(app.elInputFormTitle, /.+/)
+hasError = isUserInputValid(app.elTextFormContent, /.+/)
+
+let newTitle = app.elInputFormTitle.value.trim();
+let newContent = app.elTextFormContent.value.trim();
+
+if(hasError){
+    app.elInputFormTitle.classList.add('error')
+    hasError = true 
+    return
+}
+
+if(hasError){
+    app.elTextFormContent.classList.add('error');
+    hasError = true 
+    return
+}
+
+if(hasError){
+    return;
+}
+
+console.log(newPostIt)
 }

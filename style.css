@@ -128,3 +128,8 @@ body {
 .content .message {
     font-size: 18px;
 }
+
+.error{
+    border: #600 !important;
+    background-color:#ffb4b4 !important;
+}
